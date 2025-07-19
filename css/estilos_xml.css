@@ -1,0 +1,490 @@
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
+  padding: 25px;
+  color: #e4e4e7;
+  animation: fadeIn 1.2s ease-in;
+  line-height: 1.6;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Información del alumno */
+#datos_alumno {
+  background: rgba(24, 24, 39, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 18px;
+  padding: 30px;
+  margin-bottom: 25px;
+  text-align: center;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#datos_alumno::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #64ffda, transparent);
+  opacity: 0.6;
+}
+
+#datos_alumno:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(100, 255, 218, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+#datos_alumno h2:first-child {
+  color: #64ffda;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+  background: linear-gradient(135deg, #64ffda, #00bcd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 5px rgba(100, 255, 218, 0.5));
+  }
+  to {
+    filter: drop-shadow(0 0 12px rgba(100, 255, 218, 0.8));
+  }
+}
+
+#datos_alumno h2:nth-child(2) {
+  color: #00bcd4;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#datos_alumno h2:last-child {
+  color: #ffd700;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #ffd700, #ffb347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Línea divisoria */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #64ffda, transparent);
+  margin: 30px auto;
+  width: 80%;
+  opacity: 0.6;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Títulos de sección */
+h2:not(#datos_alumno h2) {
+  color: #64ffda;
+  font-size: 1.5rem;
+  margin: 35px 0 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 15px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2:not(#datos_alumno h2)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #64ffda, transparent);
+}
+
+/* Estilos de tablas */
+table {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+table:hover {
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+  border-color: rgba(100, 255, 218, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Headers de tabla */
+thead th {
+  background: linear-gradient(135deg, #64ffda, #00bcd4);
+  color: #0f0f23;
+  font-weight: 700;
+  text-align: center;
+  padding: 18px 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  border: none;
+  position: relative;
+}
+
+thead th:first-child {
+  border-top-left-radius: 15px;
+}
+
+thead th:last-child {
+  border-top-right-radius: 15px;
+}
+
+thead th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(15, 15, 35, 0.3);
+}
+
+/* Celdas de tabla */
+tbody td {
+  padding: 15px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+tbody tr:nth-child(even) td {
+  background: rgba(100, 255, 218, 0.03);
+}
+
+tbody tr:hover td {
+  background: rgba(100, 255, 218, 0.1);
+  transform: scale(1.005);
+  color: #64ffda;
+  font-weight: 600;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 15px;
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 15px;
+}
+
+/* Efectos hover para filas */
+tbody tr {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+  box-shadow: 
+    0 8px 20px rgba(100, 255, 218, 0.15),
+    inset 0 0 0 1px rgba(100, 255, 218, 0.2);
+}
+
+/* Estados de tablas vacías */
+table tbody:empty::after {
+  content: 'No hay datos disponibles';
+  display: block;
+  text-align: center;
+  padding: 30px;
+  color: #a1a1aa;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Identificadores específicos por tabla */
+#docentes {
+  border-left: 4px solid #ff6b6b;
+}
+
+#docentes thead th {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+}
+
+#docentes tbody tr:hover td {
+  color: #ff6b6b;
+}
+
+#alumnos {
+  border-left: 4px solid #4ecdc4;
+}
+
+#alumnos thead th {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+#alumnos tbody tr:hover td {
+  color: #4ecdc4;
+}
+
+#curso {
+  border-left: 4px solid #ffd93d;
+}
+
+#curso thead th {
+  background: linear-gradient(135deg, #ffd93d, #ff9f43);
+  color: #2d3436;
+}
+
+#curso tbody tr:hover td {
+  color: #ffd93d;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  body {
+    padding: 20px;
+  }
+  
+  #datos_alumno {
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+  
+  #datos_alumno h2:first-child {
+    font-size: 1.4rem;
+  }
+  
+  #datos_alumno h2:nth-child(2) {
+    font-size: 1.2rem;
+  }
+  
+  #datos_alumno h2:last-child {
+    font-size: 1.3rem;
+  }
+  
+  h2:not(#datos_alumno h2) {
+    font-size: 1.3rem;
+    margin: 30px 0 18px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  
+  #datos_alumno {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  
+  #datos_alumno h2:first-child {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  #datos_alumno h2:nth-child(2) {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  
+  #datos_alumno h2:last-child {
+    font-size: 1.1rem;
+  }
+  
+  h2:not(#datos_alumno h2) {
+    font-size: 1.2rem;
+    margin: 25px 0 15px 0;
+  }
+  
+  table {
+    margin-bottom: 30px;
+  }
+  
+  thead th, tbody td {
+    padding: 12px 8px;
+    font-size: 0.85rem;
+  }
+  
+  thead th {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  #datos_alumno {
+    padding: 15px;
+  }
+  
+  #datos_alumno h2:first-child {
+    font-size: 1rem;
+  }
+  
+  #datos_alumno h2:nth-child(2) {
+    font-size: 0.9rem;
+  }
+  
+  #datos_alumno h2:last-child {
+    font-size: 1rem;
+  }
+  
+  h2:not(#datos_alumno h2) {
+    font-size: 1.1rem;
+    margin: 20px 0 12px 0;
+  }
+  
+  table {
+    border-radius: 10px;
+  }
+  
+  thead th, tbody td {
+    padding: 10px 5px;
+    font-size: 0.8rem;
+  }
+  
+  thead th {
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+  }
+  
+  hr {
+    margin: 20px auto;
+    width: 90%;
+  }
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #64ffda, #00bcd4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #00bcd4, #64ffda);
+}
+
+/* Animaciones de carga */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
+}
+
+/* Efectos adicionales */
+#datos_alumno:hover::before {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+table:hover thead th {
+  animation: headerGlow 1s ease-in-out;
+}
+
+@keyframes headerGlow {
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+}
